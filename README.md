@@ -19,11 +19,12 @@ This code was made public to share our research for the benefit of the scientifi
 
 
 ## Prerequisites
-- Install PyTorch (version 0.3.1), Torch Vision and dependencies from http://pytorch.org
+- Install PyTorch (version 1.7.0), Torch Vision and dependencies from http://pytorch.org
 - Install requirements.txt (```pip install -r requirements.txt```)
 
 ## Data Preparation
-The code requires a directory containing the following files:
+To evaluate the segmentation performance of different methods, we conducted experiments on two different medical datasets, including BraTS images datasets and ISIC images datasets.
+
 - `imgs/`: folder with all image
 - `aus_openface.pkl`: dictionary containing the images action units.
 - `train_ids.csv`: file containing the images names to be used to train.

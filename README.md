@@ -13,7 +13,7 @@ mask by a class attention mask guided cycle-consistency
 label generative network. This model can simultaneously identify the label-significant mask region and maintain
 the image semantic information to precisely define segmentation boundary with an unpaired image synthesis procedure. Specifically, the produced lesion mask is fine-tuned
 using a teacher-student framework. Extensive experiments
-of the proposed method on BraTS and ISIC dataset demonstrate consistently superior performance over existing stateof-the-art methods.
+of the proposed method on BraTS and ISIC dataset demonstrate consistently superior performance over existing SOTA methods.
 
 This code was made public to share our research for the benefit of the scientific community. Do NOT use it for immoral purposes.
 

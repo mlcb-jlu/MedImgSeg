@@ -25,6 +25,12 @@ This code was made public to share our research for the benefit of the scientifi
 ## Data Preparation
 To evaluate the segmentation performance of different methods, we conducted experiments on two different medical datasets, including BraTS images datasets and ISIC images datasets.
 
+BraTS image dataset: Both BraTS 2018 and BraTS2019 data were utilized in our experiments. The
+image data of these datasets contain 3D MRI volumes with
+dimensions of 240 × 240 × 155. In order to adapt to the
+network architecture, we processed all the 3D images into
+2D slices, then cropped to 1:1 and scaled to 256 × 256. Finally, we randomly divided the data set to obtain 563, 90 and 90 training, validation and testing data.
+
 - `imgs/`: folder with all image
 - `aus_openface.pkl`: dictionary containing the images action units.
 - `train_ids.csv`: file containing the images names to be used to train.

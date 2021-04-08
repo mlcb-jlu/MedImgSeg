@@ -2,8 +2,6 @@
 
 # Consistency label transfer network for weakly supervised medical image segmentation
 ## Introduction
-Official implementation of 《Consistency label transfer network for weakly supervised medical image segmentation》. 
-
 Current auto-segmentation methods of medical images
 are hampered by the insufficient and ambiguous clinical annotation. However, rough classification labels (e.g. disease
 or normal) are often available in practice, and how to guide
@@ -31,35 +29,31 @@ dimensions of 240 × 240 × 155. In order to adapt to the
 network architecture, we processed all the 3D images into
 2D slices, then cropped to 1:1 and scaled to 256 × 256. Finally, we randomly divided the data set to obtain 563, 90 and 90 training, validation and testing data.
 
-- `imgs/`: folder with all image
-- `aus_openface.pkl`: dictionary containing the images action units.
-- `train_ids.csv`: file containing the images names to be used to train.
-- `test_ids.csv`: file containing the images names to be used to test.
+lSIC image dataset: The lSIC image dataset in our experiments is the 2018 ISIC skin lesion segmentation challenge
+dataset [6]. The image size ranges from 771 × 750 to 6748× 4499. Firstly, we removed the images which contains information other 
+than the original skin. To balance the segmentation performance and computational cost, we resized
+all the images to 256 × 256 using bicubic interpolation. Thehealth data is to intercept healthy areas of different sizes
+from the 4 corners of the original diseased image and crop them to 256 × 256. Finally, we randomly divided the data
+set to obtain 200, 31 and 31 training, validation and testing data.
 
-An example of this directory is shown in `sample_dataset/`.
-
-To generate the `aus_openface.pkl` extract each image Action Units with [OpenFace](https://github.com/TadasBaltrusaitis/OpenFace/wiki/Action-Units) and store each output in a csv file the same name as the image. Then run:
-```
-python data/prepare_au_annotations.py
-```
+The code requires a directory containing the following files:
+- `dataset/BraTS/trainA`: folder with all disease BraTS image for train
+- `dataset/BraTS/trainB`: folder with all normal BraTS image for train
+- `dataset/BraTS/testA`: folder with all disease BraTS image for test
+- `dataset/BraTS/testB`: folder with all normal BraTS image for test
+- `dataset/ISIC/trainA`: folder with all disease ISIC image for train
+- `dataset/ISIC/trainB`: folder with all normal ISIC image for train
+- `dataset/ISIC/testA`: folder with all disease ISIC image for test
+- `dataset/ISIC/testB`: folder with all normal ISIC image for test
 
 ## Run
-To train:
+To train in BraTS dataset:
 ```
-bash launch/run_train.sh
+python main.py --light True --dataset BraTS --phase train --stage 1
 ```
 To test:
 ```
-python test --input_path path/to/img
+python main.py --light True --dataset BraTS --phase test
 ```
 
-## Citation
-If you use this code or ideas from the paper for your research, please cite our paper:
-```
-@article{Pumarola_ijcv2019,
-    title={GANimation: One-Shot Anatomically Consistent Facial Animation},
-    author={A. Pumarola and A. Agudo and A.M. Martinez and A. Sanfeliu and F. Moreno-Noguer},
-    booktitle={International Journal of Computer Vision (IJCV)},
-    year={2019}
-}
-```
+

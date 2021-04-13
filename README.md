@@ -56,4 +56,15 @@ To test:
 python main.py --light True --dataset BraTS --phase test
 ```
 
+## Citation
 
+If our paper helps your research, please cite it in your publications:
+```
+@article{
+      title={Consistency label transfer network for weakly supervised medical image segmentation}, 
+      author={Wei Du and Gaoyang Li and Yu Sun and zhou rixin and Huimin Bao and Li, Ying and Shiyi Tang and Xuan Zhao},
+      year={2021}
+}
+```
+
+If you have any problem, please feel free to contact me at [zhourx19@mails.jlu.edu.cn](mailto:zhourx19@mails.jlu.edu.cn) or raise an issue.

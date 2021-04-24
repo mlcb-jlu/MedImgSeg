@@ -36,6 +36,8 @@ all the images to 256 × 256 using bicubic interpolation. Thehealth data is to i
 from the 4 corners of the original diseased image and crop them to 256 × 256. Finally, we randomly divided the data
 set to obtain 200, 31 and 31 training, validation and testing data.
 
+We have already trained two models on BraTS dataset and ISIC dataset ,you can download them for test.(location:https://pan.baidu.com/s/1POngoeLrSqU3sniNfzjp2w, password:1111)
+
 The code requires a directory containing the following files:
 - `dataset/BraTS/trainA`: folder with all disease BraTS image for train
 - `dataset/BraTS/trainB`: folder with all normal BraTS image for train
@@ -45,6 +47,8 @@ The code requires a directory containing the following files:
 - `dataset/ISIC/trainB`: folder with all normal ISIC image for train
 - `dataset/ISIC/testA`: folder with all disease ISIC image for test
 - `dataset/ISIC/testB`: folder with all normal ISIC image for test
+- `model/BraTS_params_0000460.pt`:model we have already trained on BraTS dataset
+- `model/ISIC_params_0000660.pt`:model we have already trained on ISIC dataset
 
 ## Run
 To train in BraTS dataset:

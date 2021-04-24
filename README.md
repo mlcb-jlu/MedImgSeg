@@ -62,9 +62,10 @@ If our paper helps your research, please cite it in your publications:
 ```
 @article{
       title={Consistency label transfer network for weakly supervised medical image segmentation}, 
-      author={Wei Du and Gaoyang Li and Yu Sun and zhou rixin and Huimin Bao and Li, Ying and Shiyi Tang and Xuan Zhao},
+      author={Wei Du{weidu@jlu.edu.cn} and Gaoyang Li{lgyzngc@tongji.edu.cn} and Yu Sun{ysun18@mails.jlu.edu.cn} and zhou rixin（zhourx19@mails.jlu.edu.cn） 
+      and Huimin Bao{baohm18@mails.jlu.edu.cn} and Li, Ying{liying@jlu.edu.cn} and Shiyi Tang{sytang20@mails.jlu.edu.cn} and Xuan Zhao},
       year={2021}
 }
 ```
 
-If you have any problem, please feel free to contact me at [zhourx19@mails.jlu.edu.cn](mailto:zhourx19@mails.jlu.edu.cn) or raise an issue.
+If you have any problem, please feel free to contact me at [weidu@jlu.edu.cn](mailto:weidu@jlu.edu.cn) or raise an issue.

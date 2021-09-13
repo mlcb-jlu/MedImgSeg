@@ -1,4 +1,4 @@
-# wsMedSegV2
+#MedImgSeg
 
 # Consistency label transfer network for weakly supervised medical image segmentation
 ## Introduction

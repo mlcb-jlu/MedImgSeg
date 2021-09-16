@@ -1,0 +1,101 @@
+absl-py @ file:///tmp/build/80754af9/absl-py_1600297512717/work
+albumentations==0.4.6
+beautifulsoup4==4.9.3
+blinker==1.4
+brotlipy==0.7.0
+cachetools @ file:///tmp/build/80754af9/cachetools_1596822027882/work
+certifi==2020.6.20
+cffi==1.14.0
+chardet==3.0.4
+click==7.1.2
+cryptography @ file:///tmp/build/80754af9/cryptography_1601047419573/work
+cupy==6.0.0
+cycler==0.10.0
+Cython @ file:///tmp/build/80754af9/cython_1618435161347/work
+dataclasses==0.8
+decorator==4.4.2
+dominate==2.5.1
+fastrlock==0.5
+feeluown==3.5.3
+fuo-kuwo==0.1.1
+fuo-local==0.2.1
+fuo-netease==0.4.3
+fuo-qqmusic==0.3.1
+fuo-xiami==0.2.4
+future==0.18.2
+fuzzywuzzy==0.18.0
+google-auth @ file:///tmp/build/80754af9/google-auth_1600960338579/work
+google-auth-oauthlib==0.4.1
+grpcio @ file:///tmp/build/80754af9/grpcio_1597424460877/work
+idna @ file:///tmp/build/80754af9/idna_1593446292537/work
+imageio==2.8.0
+imgaug==0.4.0
+importlib-metadata @ file:///tmp/build/80754af9/importlib-metadata_1593446433964/work
+janus==0.6.0
+joblib @ file:///tmp/build/80754af9/joblib_1594236160679/work
+jsonpatch==1.24
+jsonpointer==2.0
+kiwisolver==1.2.0
+libsvm==3.23.0.4
+Markdown @ file:///tmp/build/80754af9/markdown_1597433258348/work
+marshmallow==3.8.0
+matplotlib==3.1.1
+mkl-fft==1.2.0
+mkl-random==1.1.1
+mkl-service==2.3.0
+mutagen==1.45.1
+networkx==2.4
+nibabel==3.1.1
+numpy @ file:///tmp/build/80754af9/numpy_and_numpy_base_1596233737064/work
+oauthlib==3.1.0
+olefile==0.46
+opencv-contrib-python==4.2.0.32
+opencv-python==4.4.0.44
+opencv-python-headless==4.4.0.44
+packaging==20.4
+pandas @ file:///tmp/build/80754af9/pandas_1598371470623/work
+Pillow==6.2.1
+progress==1.5
+progressbar==2.5
+protobuf==3.13.0
+pyasn1==0.4.8
+pyasn1-modules==0.2.8
+pycparser @ file:///tmp/build/80754af9/pycparser_1594388511720/work
+pycryptodome==3.9.8
+pydensecrf==1.0rc3
+pydicom==2.1.2
+PyJWT==1.7.1
+PyOpenGL==3.1.5
+pyOpenSSL @ file:///tmp/build/80754af9/pyopenssl_1594392929924/work
+pyparsing==2.4.7
+PySocks==1.7.1
+python-dateutil==2.8.1
+pytz==2020.1
+PyWavelets==1.1.1
+PyYAML==5.3.1
+pyzmq==18.1.0
+qasync==0.9.4
+requests @ file:///tmp/build/80754af9/requests_1592841827918/work
+requests-oauthlib==1.3.0
+rsa @ file:///tmp/build/80754af9/rsa_1596998415516/work
+scikit-image==0.16.2
+scikit-learn @ file:///tmp/build/80754af9/scikit-learn_1598379690588/work
+scipy==1.1.0
+Shapely==1.7.1
+six==1.15.0
+soupsieve==2.0.1
+tensorboard==2.1.0
+tensorboardX==2.1
+threadpoolctl @ file:///tmp/tmp9twdgx9k/threadpoolctl-2.1.0-py3-none-any.whl
+torch==1.7.0+cu110
+torchaudio==0.7.0
+torchfile==0.1.0
+torchvision==0.8.1+cu110
+tornado==6.0.4
+tqdm==4.46.0
+typing-extensions==3.7.4.3
+urllib3 @ file:///tmp/build/80754af9/urllib3_1597086586889/work
+visdom==0.1.8.9
+websocket-client==0.56.0
+Werkzeug==1.0.1
+zipp==3.1.0

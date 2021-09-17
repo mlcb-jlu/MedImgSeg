@@ -36,6 +36,18 @@ from the 4 corners of the original diseased image and crop them to 256 × 256. F
 set to obtain 200, 31 and 31 training, validation and testing data.
 
 We have already trained two models on BraTS dataset and ISIC dataset ,you can download them for test.(location:https://pan.baidu.com/s/1POngoeLrSqU3sniNfzjp2w, password:1111)
+```
+your_training_set
+ - Tag0
+   - attribute0
+     - img0
+     - img1
+     - ...
+   - attribute1
+     - ...
+ - Tag1
+ - ...
+```
 
 The code requires a directory containing the following files:
 - `dataset/BraTS/trainA`: folder with all disease BraTS image for train

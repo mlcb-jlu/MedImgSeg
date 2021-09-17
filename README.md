@@ -16,6 +16,7 @@ of the proposed method on BraTS and ISIC dataset demonstrate consistently superi
 This code was made public to share our research for the benefit of the scientific community. Do NOT use it for immoral purposes.
 
 ![Weakly Supervised Image ](https://raw.githubusercontent.com/mlcb-jlu/MedImgSeg/master/img-folder/weak_result_contrast.png)
+<div align=center><img width="1500" height="1500" src="https://raw.githubusercontent.com/mlcb-jlu/MedImgSeg/master/img-folder/weak_result_contrast.png"/></div>
 ## Prerequisites
 - Install PyTorch (version 1.7.0), Torch Vision and dependencies from http://pytorch.org
 - Install requirements.txt (```pip install -r requirements.txt```)

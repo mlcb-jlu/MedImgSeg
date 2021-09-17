@@ -15,7 +15,7 @@ of the proposed method on BraTS and ISIC dataset demonstrate consistently superi
 
 This code was made public to share our research for the benefit of the scientific community. Do NOT use it for immoral purposes.
 
-
+![Weakly Supervised Image ](https://raw.githubusercontent.com/mlcb-jlu/MedImgSeg/master/img-folder/weak_result_contrast.png)
 ## Prerequisites
 - Install PyTorch (version 1.7.0), Torch Vision and dependencies from http://pytorch.org
 - Install requirements.txt (```pip install -r requirements.txt```)
@@ -47,8 +47,8 @@ The code requires a directory containing the following files:
 - `dataset/ISIC/trainB`: folder with all normal ISIC image for train
 - `dataset/ISIC/testA`: folder with all disease ISIC image for test
 - `dataset/ISIC/testB`: folder with all normal ISIC image for test
-- `model/BraTS_params_0000460.pt`:model we have already trained on BraTS dataset
-- `model/ISIC_params_0000660.pt`:model we have already trained on ISIC dataset
+- `model/BraTS_params_0000460.pt`: model we have already trained on BraTS dataset
+- `model/ISIC_params_0000660.pt`: model we have already trained on ISIC dataset
 
 ## Run
 To train in BraTS dataset:

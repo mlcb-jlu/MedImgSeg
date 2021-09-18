@@ -50,7 +50,7 @@ from the 4 corners of the original diseased image and crop them to 256 × 256. F
 set to obtain 200, 31 and 31 training, validation and testing data.
 
 
-We have already trained two models on BraTS dataset and ISIC dataset ,you can download them and the data we have processed for training and test.(location:https://pan.baidu.com/s/1rx29DxWq5W6bTh9NcvT0Tw, password:1111)
+We have already trained two models on BraTS dataset and ISIC dataset ,you can download these. The data we have processed for training and test is available too.(location:https://pan.baidu.com/s/1rx29DxWq5W6bTh9NcvT0Tw, password:1111)
 Anyway you shound get the dataset and the model folders like:
 ```
 your_project_location

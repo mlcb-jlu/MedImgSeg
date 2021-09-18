@@ -15,8 +15,13 @@ the proposed method on BraTS and ISIC datasets demonstrate consistently superior
 
 This code was made public to share our research for the benefit of the scientific community. Do not use it for immoral purposes.
 <div align=center><img width="1500" height="1200" src="https://raw.githubusercontent.com/mlcb-jlu/MedImgSeg/master/img-folder/weak_result_contrast.png"/></div>
+
 ## Prerequisites
 Our code is built based on Pytorch, and the packages to be installed are as follows:
+```
+conda create -n HiSD python=3.6.6
+conda activate HiSD
+```
 - Install requirements.txt (```pip install -r requirements.txt```)
 
 ## Data Preparation

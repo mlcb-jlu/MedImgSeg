@@ -72,12 +72,14 @@ your_project_location
 To test our trained model on BraTS dataset and ISIC dataset:
 ```
 python main.py --light True --dataset BraTS --phase test
-
+```
+Before you start training, you need to run visdom and open the corresponding address in the browser to monitor each loss:
+```
+python -m visdom.server
 ```
 To train and validation on BraTS dataset and ISIC dataset:
 ```
 python main.py --light True --dataset BraTS --phase train --stage 1
-
 ```
 
 

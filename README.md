@@ -13,16 +13,25 @@ region through an image synthesis procedure. In addition, the
 produced lesion mask is further prompted by a joint discrimination strategy for the synthetized and generated image belonging to the opposite category. Extensive experiments of
 the proposed method on BraTS and ISIC datasets demonstrate consistently superior performance over existing state-of-the-art methods.
 
-This code was made public to share our research for the benefit of the scientific community. Do not use it for immoral purposes.
+Comparison between the other methods of weakly supervised segmentation and ours. (a) Ground Truth (GT),
+(b) Ours, (c) PSA (Ahn and Kwak 2018), (d) SEAM (Wang et al. 2020) and (e) IRN (Ahn, Cho, and Kwak 2019).
 <div align=center><img width="1500" height="1200" src="https://raw.githubusercontent.com/mlcb-jlu/MedImgSeg/master/img-folder/weak_result_contrast.png"/></div>
 
+Comparision of the segmentation performance JA, DI, AC, SE and SP (%) of our weakly supervised pipeline on
+(a) BraTS dataset and (b) ISIC dataset against CAM (Zhou et al. 2016), CAM+CRF (Zhou et al. 2016), PCM (Wang
+et al. 2020), PCM+CRF (Wang et al. 2020), PSA (Ahn and Kwak 2018), SEAM (Wang et al. 2020), IRN (Ahn, Cho, and Kwak 2019)
+<div align=center><img width="1500" height="1200" src="https://raw.githubusercontent.com/mlcb-jlu/MedImgSeg/master/img-folder/weak_result_contrast.png"/></div>
+
+
+
+This code was made public to share our research for the benefit of the scientific community. Do not use it for immoral purposes.
 ## Prerequisites
 Our code is built based on Pytorch, and the packages to be installed are as follows:
 ```
-conda create -n HiSD python=3.6.6
-conda activate HiSD
+conda create -n CBFNet python=3.6.6
+conda activate CBFNet
+pip install -r requirements.txt
 ```
-- Install requirements.txt (```pip install -r requirements.txt```)
 
 ## Data Preparation
 To evaluate the segmentation performance of different methods, we conducted experiments on two different medical datasets, including BraTS datasets and ISIC datasets.

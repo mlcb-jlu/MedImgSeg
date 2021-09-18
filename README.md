@@ -20,7 +20,7 @@ Comparison between the other methods of weakly supervised segmentation and ours.
 Comparision of the segmentation performance JA, DI, AC, SE and SP (%) of our weakly supervised pipeline on
 (a) BraTS dataset and (b) ISIC dataset against CAM (Zhou et al. 2016), CAM+CRF (Zhou et al. 2016), PCM (Wang
 et al. 2020), PCM+CRF (Wang et al. 2020), PSA (Ahn and Kwak 2018), SEAM (Wang et al. 2020), IRN (Ahn, Cho, and Kwak 2019)
-<div align=center><img width="1000" height="800" src="https://raw.githubusercontent.com/mlcb-jlu/MedImgSeg/master/img-folder/weak%20superbised%20accuracy%20result.png"/></div>
+<div align=center><img width="800" height="500" src="https://raw.githubusercontent.com/mlcb-jlu/MedImgSeg/master/img-folder/weak%20superbised%20accuracy%20result.png"/></div>
 
 
 
@@ -85,15 +85,18 @@ your_project_location
 ## Run
 To test our trained model on BraTS dataset and ISIC dataset:
 ```
-python main.py --light True --dataset BraTS --phase test
+sudo ./start_test.sh
 ```
 Before you start training, you need to run visdom and open the corresponding address in the browser to monitor each loss:
 ```
 python -m visdom.server
 ```
-To train and validation on BraTS dataset and ISIC dataset:
+
+To train , validating and testing on BraTS dataset and ISIC dataset:
 ```
-python main.py --light True --dataset BraTS --phase train --stage 1
+sudo ./start_train.sh
+sudo ./start_test.sh
+sudo ./start_crf.sh
 ```
 
 

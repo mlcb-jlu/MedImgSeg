@@ -37,16 +37,25 @@ set to obtain 200, 31 and 31 training, validation and testing data.
 
 We have already trained two models on BraTS dataset and ISIC dataset ,you can download them for test.(location:https://pan.baidu.com/s/1POngoeLrSqU3sniNfzjp2w, password:1111)
 ```
-your_training_set
- - Tag0
-   - attribute0
-     - img0
-     - img1
+your_dataset_set
+ - dataset
+   - BraTS
+     - brats_1
+       - 563_A_weak
+       - 563_B_weak
+       - testA
+         - images
+         - labels
+       - testB
+       - val
+         - images
+         - labels
+       - few_sample
+         - stage2_50
+           - A
+           - B
+   - ISIC
      - ...
-   - attribute1
-     - ...
- - Tag1
- - ...
 ```
 
 The code requires a directory containing the following files:

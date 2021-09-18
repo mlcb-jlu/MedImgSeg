@@ -20,7 +20,7 @@ Comparison between the other methods of weakly supervised segmentation and ours.
 Comparision of the segmentation performance JA, DI, AC, SE and SP (%) of our weakly supervised pipeline on
 (a) BraTS dataset and (b) ISIC dataset against CAM (Zhou et al. 2016), CAM+CRF (Zhou et al. 2016), PCM (Wang
 et al. 2020), PCM+CRF (Wang et al. 2020), PSA (Ahn and Kwak 2018), SEAM (Wang et al. 2020), IRN (Ahn, Cho, and Kwak 2019)
-<div align=center><img width="800" height="500" src="https://raw.githubusercontent.com/mlcb-jlu/MedImgSeg/master/img-folder/weak%20superbised%20accuracy%20result.png"/></div>
+<div align=center><img width="600" height="500" src="https://raw.githubusercontent.com/mlcb-jlu/MedImgSeg/master/img-folder/weak%20superbised%20accuracy%20result.png"/></div>
 
 
 

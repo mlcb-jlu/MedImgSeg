@@ -22,8 +22,6 @@ Comparision of the segmentation performance JA, DI, AC, SE and SP (%) of our wea
 et al. 2020), PCM+CRF (Wang et al. 2020), PSA (Ahn and Kwak 2018), SEAM (Wang et al. 2020), IRN (Ahn, Cho, and Kwak 2019)
 <div align=center><img width="450" height="500" src="https://raw.githubusercontent.com/mlcb-jlu/MedImgSeg/master/img-folder/weak%20superbised%20accuracy%20result.png"/></div>
 
-
-
 This code was made public to share our research for the benefit of the scientific community. Do not use it for immoral purposes.
 ## Prerequisites
 Our code is built based on Pytorch, and the packages to be installed are as follows:
@@ -35,9 +33,8 @@ pip install -r requirements.txt
 
 ## Data Preparation
 To evaluate the segmentation performance of different methods, we conducted experiments on two different medical datasets, including BraTS datasets and ISIC datasets.
+We have already trained two models on BraTS dataset and ISIC dataset ,you can download for training and testing.(location:https://pan.baidu.com/s/1rx29DxWq5W6bTh9NcvT0Tw, password:1111)
 
-
-We have already trained two models on BraTS dataset and ISIC dataset ,you can download for training and test is available too.(location:https://pan.baidu.com/s/1rx29DxWq5W6bTh9NcvT0Tw, password:1111)
 Anyway you shound get the dataset and the model folders like:
 ```
 your_project_location

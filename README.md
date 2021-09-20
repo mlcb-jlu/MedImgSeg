@@ -1,16 +1,15 @@
 #MedImgSeg
 
-# Consistency label transfer network for weakly supervised medical image segmentation
+# Consistency Label Transferring Network for Medical Image Segmentation
 ## Introduction
-Current auto-segmentation methods of medical images are
-greatly hampered by the insufficient and ambiguous clinical
+Official pytorch implementation of paper "Consistency Label Transferring Network for Medical Image Segmentation"
+
+Current auto-segmentation methods of medical images are greatly hampered by the insufficient and ambiguous clinical
 annotation. Actually, the rough classification labels (e.g. disease or normal) rather than the precise segmentation mask,
-are more common and available in clinical practice, but how
-to fully utilize those weak clinical labels to infer the precise lesion mask and guide the medical image segmentation remains largely unexplored. In this paper, we proposed
+are more common and available in clinical practice, but how to fully utilize those weak clinical labels to infer the precise lesion mask and guide the medical image segmentation remains largely unexplored. In this paper, we proposed
 a medical image segmentation framework to generate lesion mask by a class attention map (CAM) guided cycleconsistency label transferring network. This model can simultaneously identify pixel level label-discriminated mask
 meanwhile maintain the semantic information and anatomical structure of medical image to precisely define segmentation boundary by collating the label and semantic related
-region through an image synthesis procedure. In addition, the
-produced lesion mask is further prompted by a joint discrimination strategy for the synthetized and generated image belonging to the opposite category. Extensive experiments of
+region through an image synthesis procedure. In addition, the produced lesion mask is further prompted by a joint discrimination strategy for the synthetized and generated image belonging to the opposite category. Extensive experiments of
 the proposed method on BraTS and ISIC datasets demonstrate consistently superior performance over existing state-of-the-art methods.
 
 Comparison between the other methods of weakly supervised segmentation and ours. (a) Ground Truth (GT),

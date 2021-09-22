@@ -20,11 +20,17 @@ et al. 2020), PCM+CRF (Wang et al. 2020), PSA (Ahn and Kwak 2018), SEAM (Wang et
 
 This code was made public to share our research for the benefit of the scientific community. Do not use it for immoral purposes.
 ## Prerequisites
+## Clone this repo
 Our code is built based on Pytorch, and the packages to be installed are as follows:
+
 ```
 conda create -n CBFNet python=3.6.6
 conda activate CBFNet
 pip install -r requirements.txt
+```
+```
+git clone https://github.com/mlcb-jlu/MedImgSeg
+cd MedImgSeg/
 ```
 
 ## Data Preparation

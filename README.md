@@ -22,15 +22,20 @@ This code was made public to share our research for the benefit of the scientifi
 ## Prerequisites
 ## Clone this repo
 Our code is built based on Pytorch, and the packages to be installed are as follows:
+```
+sudo git clone https://github.com/mlcb-jlu/MedImgSeg
+cd MedImgSeg/
+```
 
 ```
 conda create -n CBFNet python=3.6.6
 conda activate CBFNet
-pip install -r requirements.txt
 ```
+Install the pytorch you need on the pytorch official website:https://pytorch.org/get-started/locally/. Then install the
+the dependencies: (Anaconda is recommended.)
+
 ```
-git clone https://github.com/mlcb-jlu/MedImgSeg
-cd MedImgSeg/
+pip install pillow tqdm tensorboardx pyyaml visdom opencv-python nibabel libsvm matplotlib
 ```
 
 ## Data Preparation

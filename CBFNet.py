@@ -609,7 +609,7 @@ class CBFNet(object) :
             find_output_path = os.path.join(root_path, 'iccv_labels' + str(self.stage), model_name)
             findCont(model_name, find_path, find_output_path)
             five_pre_path = os.path.join(root_path, 'iccv_labels' + str(self.stage), model_name)
-            five_label_path = os.path.join('dataset', self.dataset, self.folder, 'test', 'labels')
+            five_label_path = os.path.join('dataset', self.dataset, self.folder, 'testA', 'labels')
             return_value = five_m(model_name, five_pre_path, five_label_path, self.dataset, self.folder, self.stage)
             if (return_value[0] > max_value[0]):
                 max_value = return_value.copy()

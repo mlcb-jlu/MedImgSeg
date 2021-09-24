@@ -42,7 +42,7 @@ pip install pillow tqdm tensorboardx pyyaml visdom opencv-python nibabel libsvm 
 To evaluate the segmentation performance of different methods, we conducted experiments on two different medical datasets, including BraTS datasets and ISIC datasets.
 You can download for training and testing.(location:https://pan.baidu.com/s/1rx29DxWq5W6bTh9NcvT0Tw, password:1111)
 
-Anyway you shound get the dataset and the model folders like:
+Anyway you should get the dataset folders like:
 ```
 your_project_location
  - dataset
@@ -74,10 +74,6 @@ your_project_location
 
 
 ## Run
-To test our trained model on BraTS dataset and ISIC dataset:
-```
-sudo ./start_test.sh
-```
 Before you start training, you need to run visdom and open the corresponding address in the browser to monitor each loss:
 ```
 python -m visdom.server
@@ -89,8 +85,20 @@ sudo ./start_train.sh
 sudo ./start_test.sh
 sudo ./start_crf.sh
 ```
-
-
+Then you should get the dataset folders like:
+```
+your_project_location
+ - results
+   - BraTS
+     - brats_1
+       - val_folder
+         - crf_deal1
+           - results.txt #
+       - crf_deal1
+         - results.txt  #
+   - ISIC
+     - ..
+```
 ## Citation
 
 If our paper helps your research, please cite it in your publications:

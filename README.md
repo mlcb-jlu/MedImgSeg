@@ -40,7 +40,7 @@ pip install pillow tqdm tensorboardx pyyaml visdom opencv-python nibabel libsvm 
 
 ## Data Preparation
 To evaluate the segmentation performance of different methods, we conducted experiments on two different medical datasets, including BraTS datasets and ISIC datasets.
-We have already trained two models on BraTS dataset and ISIC dataset ,you can download for training and testing.(location:https://pan.baidu.com/s/1rx29DxWq5W6bTh9NcvT0Tw, password:1111)
+You can download for training and testing.(location:https://pan.baidu.com/s/1rx29DxWq5W6bTh9NcvT0Tw, password:1111)
 
 Anyway you shound get the dataset and the model folders like:
 ```

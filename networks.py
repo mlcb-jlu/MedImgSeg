@@ -63,8 +63,6 @@ class ResnetGenerator(nn.Module):
                   nn.ReLU(True)]
         self.gamma1 = nn.Linear(ngf * mult, ngf * mult, bias=False)
         self.beta1 = nn.Linear(ngf * mult, ngf * mult, bias=False)
-        self.gamma2 = nn.Linear(ngf * mult, ngf * mult, bias=False)
-        self.beta2 = nn.Linear(ngf * mult, ngf * mult, bias=False)
 
         # Up-Sampling Bottleneck
         for i in range(n_blocks):
@@ -205,7 +203,6 @@ class ResnetGenerator(nn.Module):
             x_ = self.FC(x.view(x.shape[0], -1))
             # x_Down_ = self.FC(x_Down.view(x_Down.shape[0], -1))
         gamma1, beta1 = self.gamma1(x_), self.beta1(x_)  # gamma1[C, 248] beta1 [C, 248]
-        # gamma2, beta2 = self.gamma2(x_Down_), self.beta2(x_Down_)
 
         for i in range(self.n_blocks):
             # att_mask, x_mask = getattr(self, 'Mask_Layer_' + str(i+1))(x_mask)
@@ -232,6 +229,7 @@ class ResnetGenerator(nn.Module):
         # AdaLIN三个分支
 
         return image_out1, cam_logit, heatmap, out_mask, image_out2, input_r
+
 
 
 class ResnetBlock(nn.Module):

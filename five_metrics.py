@@ -81,8 +81,9 @@ def five_m(model_name, pre_path, label_path, dataset, folder, stage):
     print("  JA     AC     DI      SE     SP")
     print(", ".join(str(i) for i in list_result_round))
 
-    if(float(list_result_round[0])>0.7 and float(list_result_round[0])<1):
-        with open("/home/dw/Disk_8T/SY/zhourixin/github/UGATIT-2.0/results/"+dataset+'/'+folder+'/'+dataset+"results"+str(stage)+".txt", "a+") as f:
+    if(float(list_result_round[0])>0.1 and float(list_result_round[0])<1):
+        # with open("/home/dw/Disk_8T/SY/zhourixin/github/UGATIT-2.0/results/"+dataset+'/'+folder+'/'+dataset+"results"+str(stage)+".txt", "a+") as f:
+        with open(os.path.join("results", dataset, folder, dataset+"results"+str(stage)+".txt"), "a+") as f:
             f.write(model_name+'teacher'+'\n')
             # f.write('\n')
             f.write(str(list_result_round))
@@ -141,7 +142,8 @@ def five_m_val(model_name, pre_path, label_path, dataset, stage):
     print(", ".join(str(i) for i in list_result_round))
 
     if(float(list_result_round[0])>0.65 and float(list_result_round[0])<1):
-        with open("/home/dw/Disk_8T/SY/zhourixin/github/UGATIT-2.0/results/"+dataset+"results"+str(stage)+'val'+".txt", "a+") as f:
+        # with open("/home/dw/Disk_8T/SY/zhourixin/github/UGATIT-2.0/results/"+dataset+"results"+str(stage)+'val'+".txt", "a+") as f:
+        with open(os.path.join(dataset+"results"+str(stage)+'val'+".txt"), "a+") as f:
             f.write(model_name+'teacher'+'\n')
             # f.write('\n')
             f.write(str(list_result))

@@ -56,7 +56,7 @@ class CBFNet(object) :
         self.benchmark_flag = args.benchmark_flag
         self.resume = args.resume
         self.imglist_testA = os.listdir(os.path.join('dataset', self.dataset, self.folder, 'testA', 'images'))
-        self.imglist_testB = os.listdir(os.path.join('dataset', self.dataset, 'testB'))
+        self.imglist_testB = os.listdir(os.path.join('dataset', self.dataset, self.folder, 'testB'))
         self.batch_size = args.batch_size
         self.stage = args.stage
 
@@ -380,7 +380,7 @@ class CBFNet(object) :
                     real_A2 = real_A
 
                     imgB = imglist_testB[test_start % len(imglist_testB)]
-                    tpath = os.path.join('dataset', self.dataset, 'testB', imgB)
+                    tpath = os.path.join('dataset', self.dataset, self.folder, 'testB', imgB)
                     fopen = Image.open(tpath)
                     transform = transforms.Compose(
                         [transforms.ToTensor(),
@@ -393,15 +393,15 @@ class CBFNet(object) :
                     real_A2, real_B2 = real_A2.to(self.device), real_B2.to(self.device)
                     test_start += 1
 
-                    fake_A2B, _, fake_A2B_heatmap, att_maskA2B, contentA2B, real_A2_r = self.genA2B(real_A2)
-                    fake_B2A, _, fake_B2A_heatmap, att_maskB2A, contentB2A, real_B2_r = self.genB2A(real_B2)
+                    # fake_A2B, _, fake_A2B_heatmap, att_maskA2B, contentA2B, real_A2_r = self.genA2B(real_A2)
+                    # fake_B2A, _, fake_B2A_heatmap, att_maskB2A, contentB2A, real_B2_r = self.genB2A(real_B2)
 
                     A2B = np.concatenate((A2B, np.concatenate((RGB2BGR(tensor2numpy(denorm(real_A[0]))),
                                                                cam(tensor2numpy(fake_A2B_heatmap[0]), self.img_size),
                                                                RGB2BGR(tensor2numpy(denorm(fake_A2B[0]))),
                                                                RGB2BGR(tensor2numpy(denorm(att_maskA2B[0]))*2-1),
                                                                RGB2BGR(tensor2numpy(denorm(contentA2B[0]))),
-                                                               RGB2BGR(tensor2numpy(denorm(real_A2_r[0])))), 0)), 1)
+                                                               RGB2BGR(tensor2numpy(denorm(realA_r[0])))), 0)), 1)
 
                 cv2.imwrite(os.path.join(self.result_dir, self.dataset, self.folder, 'img'+str(self.stage), 'A2B_%07d.png' % step), A2B * 255.0)
                 self.genA2B.train(), self.genB2A.train(), self.disGA.train(), self.disGB.train(), self.disLA.train(), self.disLB.train()

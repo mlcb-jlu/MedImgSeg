@@ -1,8 +1,8 @@
 #!/bin/bash
-export PATH=/home/dw/anaconda3/envs/sytorch1.7/bin:$PATH #Change to your own virtual environment path
+export PATH=/home/weidu/anaconda3/envs/CBFNet/bin:$PATH #Change to your own virtual environment path
 
 chmod -R 777 results
-
+#
 python -u infer_cls_test_our20210321.py --dataset ISIC --folder isic_1 --phase val
 chmod -R 777 results
 python -u infer_cls_test_our20210321.py --dataset ISIC --folder isic_1 --phase test

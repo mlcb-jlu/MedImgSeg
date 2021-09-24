@@ -6,6 +6,7 @@ import cv2
 import pydensecrf.densecrf as dcrf
 from pydensecrf.utils import unary_from_softmax
 import argparse
+import imageio
 from five_metrics_crf_deal import five_m
 
 def crf_inference(img, probs, t=10, scale_factor=1, labels=21):
@@ -55,22 +56,26 @@ if __name__ == '__main__':
     if(args.phase=='test'):
         stage = '1'
 
-        root_path = r"/home/dw/Disk_8T/SY/zhourixin/github/UGATIT-2.0/"
 
         # Output path of the result of dense CRF post-processing
-        out_cam_pred_path = os.path.join(root_path, "results", args.dataset, args.folder, "crf_deal1/")
+        # out_cam_pred_path = os.path.join(root_path, "results", args.dataset, args.folder, "crf_deal1/")
+        out_cam_pred_path = os.path.join("results", args.dataset, args.folder, "crf_deal1/")
 
-        orig_img_path = os.path.join(root_path, "dataset", args.dataset, args.folder, "testA", "images/")
+        # orig_img_path = os.path.join(root_path, "dataset", args.dataset, args.folder, "testA", "images/")
+        orig_img_path = os.path.join("dataset", args.dataset, args.folder, "testA", "images/")
 
-        max_txt = os.path.join(root_path, "results", args.dataset, args.folder, "max.txt")
+        # max_txt = os.path.join(root_path, "results", args.dataset, args.folder, "max.txt")
+        max_txt = os.path.join("results", args.dataset, args.folder, "max.txt")
         with open(max_txt, "r") as f:
             lines = f.readlines()
             max_pth = lines[-1].strip('\n')
 
         #
-        pre_path = os.path.join(root_path, "results", args.dataset, args.folder, "results_mask_reverse1", max_pth+"/")
+        # pre_path = os.path.join(root_path, "results", args.dataset, args.folder, "results_mask_reverse1", max_pth+"/")
+        pre_path = os.path.join("results", args.dataset, args.folder, "results_mask_reverse1", max_pth+"/")
 
-        model_path = os.path.join(root_path, "results", args.dataset, args.folder, "model1/")
+        # model_path = os.path.join(root_path, "results", args.dataset, args.folder, "model1/")
+        model_path = os.path.join("results", args.dataset, args.folder, "model1/")
         model_list = os.listdir(model_path)
         for model in model_list:
             if(model!=max_pth):
@@ -107,7 +112,7 @@ if __name__ == '__main__':
                 pred = np.argmax(np.concatenate((bg_score, norm_cam)), 0)*255
                 if not os.path.exists(out_cam_pred_path + "/CAM"):
                     os.makedirs(out_cam_pred_path + "/CAM")
-                scipy.misc.imsave(os.path.join(out_cam_pred_path+"/CAM", image_name + '.png'), norm_cam[1])
+                imageio.imsave(os.path.join(out_cam_pred_path+"/CAM", image_name + '.png'), norm_cam[1])
 
 
             bg_th = 40
@@ -129,28 +134,28 @@ if __name__ == '__main__':
 
                     if not os.path.exists(out_cam_pred_path+"/"+str(t)):
                         os.makedirs(out_cam_pred_path+"/"+str(t))
-                    scipy.misc.imsave(os.path.join(out_cam_pred_path+"/"+str(t), image_name + '.png'), crf[1] * 255)
+                    imageio.imsave(os.path.join(out_cam_pred_path+"/"+str(t), image_name + '.png'), crf[1] * 255)
 
-        label_path = os.path.join(root_path, "dataset", args.dataset, args.folder, "testA", "labels/")
+        # label_path = os.path.join(root_path, "dataset", args.dataset, args.folder, "testA", "labels/")
+        label_path = os.path.join("dataset", args.dataset, args.folder, "testA", "labels/")
         five_m(out_cam_pred_path, label_path)
 
     elif(args.phase=="val"):
 
         stage = '1'
 
-        root_path = r"/home/dw/Disk_8T/SY/zhourixin/github/UGATIT-2.0/"
-        out_cam_pred_path = os.path.join(root_path, "results", args.dataset, args.folder, 'val_folder', "crf_deal1/")
+        out_cam_pred_path = os.path.join("results", args.dataset, args.folder, 'val_folder', "crf_deal1/")
 
-        orig_img_path = os.path.join(root_path, "dataset", args.dataset, args.folder, "val", "images/")
+        orig_img_path = os.path.join("dataset", args.dataset, args.folder, "val", "images/")
 
-        max_txt = os.path.join(root_path, "results", args.dataset, args.folder, "val_max.txt")
+        max_txt = os.path.join("results", args.dataset, args.folder, "val_max.txt")
         with open(max_txt, "r") as f:
             lines = f.readlines()
             max_pth = lines[-1].strip('\n')
 
-        pre_path = os.path.join(root_path, "results", args.dataset, args.folder, 'val_folder', "results_mask_reverse1", max_pth + "/")
+        pre_path = os.path.join("results", args.dataset, args.folder, 'val_folder', "results_mask_reverse1", max_pth + "/")
 
-        model_path = os.path.join(root_path, "results", args.dataset, args.folder, "model1/")
+        model_path = os.path.join("results", args.dataset, args.folder, "model1/")
         model_list = os.listdir(model_path)
         for model in model_list:
             if (model != max_pth):
@@ -190,7 +195,7 @@ if __name__ == '__main__':
                 pred = np.argmax(np.concatenate((bg_score, norm_cam)), 0) * 255
                 if not os.path.exists(out_cam_pred_path + "/CAM"):
                     os.makedirs(out_cam_pred_path + "/CAM")
-                scipy.misc.imsave(os.path.join(out_cam_pred_path + "/CAM", image_name + '.png'), norm_cam[1])
+                imageio.imsave(os.path.join(out_cam_pred_path + "/CAM", image_name + '.png'), norm_cam[1])
 
             bg_th = 40
             for t in [1, 2, 3, 4, 5, 6, 7, 8]:
@@ -219,16 +224,9 @@ if __name__ == '__main__':
                 # scipy.misc.imsave(os.path.join(args.out_cam_pred, img_name + '-crf2.png'), crf[2] * 255)
                 if not os.path.exists(out_cam_pred_path + "/" + str(t)):
                     os.makedirs(out_cam_pred_path + "/" + str(t))
-                scipy.misc.imsave(os.path.join(out_cam_pred_path + "/" + str(t), image_name + '.png'), crf[1] * 255)
-                # folder = args.out_crf + ('_%.1f' % t)
-                # if not os.path.exists(folder):
-                #    os.makedirs(folder)
-                # np.save(os.path.join(folder, img_name + '.npy'), crf)
+                imageio.imsave(os.path.join(out_cam_pred_path + "/" + str(t), image_name + '.png'), crf[1] * 255)
 
-            # print(iter)
-
-        # label_path = r"/home/dw/Disk_8T/SY/zhourixin/github/UGATIT-2.0/dataset/BraTS/brats_1/test/labels/"
-        label_path = os.path.join(root_path, "dataset", args.dataset, args.folder, "val", "labels/")
+        label_path = os.path.join("dataset", args.dataset, args.folder, "val", "labels/")
         five_m(out_cam_pred_path, label_path)
     else:
         print("phase wrong")

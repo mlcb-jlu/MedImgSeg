@@ -67,13 +67,6 @@ your_project_location
            - B
    - ISIC
      - ...
- - results
-   - BraTS
-     - brats_1
-       - model1
-   - ISIC
-     - isic_1
-       - model1
 ```
 
 
@@ -89,7 +82,7 @@ sudo ./start_train.sh
 sudo ./start_test.sh
 sudo ./start_crf.sh
 ```
-Then you should get the dataset folders like:
+Then you should get the result folders like:
 ```
 your_project_location
  - results
@@ -97,9 +90,11 @@ your_project_location
      - brats_1
        - val_folder
          - crf_deal1
-           - results.txt #
+           - 1~8 # The segmentation results after dense-CRF post-processing on validation set
+           - results.txt # The best results of the model on the validation set
        - crf_deal1
-         - results.txt  #
+         - 1~8 # The segmentation results after dense-CRF post-processing on test set
+         - results.txt  # The best results of the model on the test set
    - ISIC
      - ..
 ```

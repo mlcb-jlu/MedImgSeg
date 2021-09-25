@@ -29,10 +29,14 @@ cd MedImgSeg/
 
 ```
 conda create -n CBFNet python=3.6.6
+source activate
 conda activate CBFNet
 ```
-Install the pytorch you need on the pytorch official website:https://pytorch.org/get-started/locally/. Then install the
-the dependencies: (Anaconda is recommended.)
+Install the pytorch you need on the pytorch official website:https://pytorch.org/get-started/locally/. 
+```
+conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c nvidia
+```
+Then install the dependencies: (Anaconda is recommended.)
 
 ```
 pip install pillow tqdm tensorboardx pyyaml visdom opencv-python nibabel libsvm matplotlib
@@ -78,7 +82,7 @@ Before you start training, you need to run visdom and open the corresponding add
 ```
 python -m visdom.server
 ```
-
+Then you should change the PATH in the executable bash files to your virtual environment location.
 To train , validating and testing on BraTS dataset and ISIC dataset:
 ```
 sudo ./start_train.sh

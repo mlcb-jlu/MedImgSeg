@@ -15,7 +15,7 @@ def parse_args():
     parser.add_argument('--folder', type=str, default='YOUR_FOLDER_NAME', help='folder_name')
 
     parser.add_argument('--iteration', type=int, default=7000, help='The number of training iterations')
-    parser.add_argument('--batch_size', type=int, default=2, help='The size of batch size')
+    parser.add_argument('--batch_size', type=int, default=1, help='The size of batch size')
     parser.add_argument('--print_freq', type=int, default=50, help='The number of image print freq')
     parser.add_argument('--save_freq', type=int, default=50, help='The number of model save freq')
     parser.add_argument('--decay_flag', type=str2bool, default=False, help='The decay_flag')

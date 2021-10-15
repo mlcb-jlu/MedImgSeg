@@ -70,13 +70,13 @@ your_project_location
 ```
 
 
-## Run
+## Training
 Before you start training, you need to run visdom and open the corresponding address in the browser to monitor each loss:
 ```
 python -m visdom.server
 ```
 Then you should change the PATH in the executable bash files to your virtual environment location.
-To train , validating and testing on BraTS dataset and ISIC dataset:
+To training , validating and testing on BraTS dataset and ISIC dataset:
 ```
 sudo ./start_train.sh
 sudo ./start_test.sh
@@ -99,15 +99,3 @@ your_project_location
      - ..
 ```
 ## Citation
-
-If our paper helps your research, please cite it in your publications:
-```
-@article{
-      title={Consistency label transfer network for weakly supervised medical image segmentation}, 
-      author={Wei Du{weidu@jlu.edu.cn} and Rixin Zhou（zhourx19@mails.jlu.edu.cn） and Yu Sun{ysun18@mails.jlu.edu.cn} and  
-      and Huimin Bao{baohm18@mails.jlu.edu.cn} and Shiyi Tang{sytang20@mails.jlu.edu.cn} and Xuan Zhao and Li, Ying{liying@jlu.edu.cn} and Gaoyang Li{lgyzngc@tongji.edu.cn}},
-      year={2021}
-}
-```
-
-If you have any problem, please feel free to contact me at [weidu@jlu.edu.cn](mailto:weidu@jlu.edu.cn) or raise an issue.

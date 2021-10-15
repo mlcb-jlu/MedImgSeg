@@ -46,7 +46,7 @@ pip install pillow tqdm tensorboardx pyyaml visdom opencv-python nibabel libsvm 
 To evaluate the segmentation performance of different methods, we conducted experiments on two different medical datasets, including BraTS datasets and ISIC datasets.
 You can download for training and testing.(location:https://pan.baidu.com/s/1rx29DxWq5W6bTh9NcvT0Tw, password:1111)
 
-Anyway you should get the dataset folders like:
+* Anyway you should get the dataset folders like:
 ```
 your_project_location
  - dataset
@@ -70,19 +70,19 @@ your_project_location
 ```
 
 
-## Training
-Before you start training, you need to run visdom and open the corresponding address in the browser to monitor each loss:
+## Training and Testing
+* Step1：you need to run visdom and open the corresponding address in the browser to monitor each loss:
 ```
 python -m visdom.server
 ```
-Then you should change the PATH in the executable bash files to your virtual environment location.
+* Step2： you should change the PATH in the executable bash files to your virtual environment location.
 To training , validating and testing on BraTS dataset and ISIC dataset:
 ```
 sudo ./start_train.sh
 sudo ./start_test.sh
 sudo ./start_crf.sh
 ```
-Then you should get the result folders like:
+* Then you will get the result folders like:
 ```
 your_project_location
  - results
@@ -91,11 +91,11 @@ your_project_location
        - val_folder
          - crf_deal1
            - 1~8 # The segmentation results after dense-CRF post-processing on validation set
-           - results.txt # The best results of the model on the validation set
+           - results.txt # The best segmentation results of the model on the validation set
        - crf_deal1
          - 1~8 # The segmentation results after dense-CRF post-processing on test set
-         - results.txt  # The best results of the model on the test set
+         - results.txt  # The best segmentation results of the model on the test set
    - ISIC
      - ..
 ```
-## Citation
+

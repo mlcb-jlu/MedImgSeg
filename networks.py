@@ -68,9 +68,6 @@ class ResnetGenerator(nn.Module):
         for i in range(n_blocks):
             setattr(self, 'UpBlock1_' + str(i + 1), ResnetAdaILNBlock(ngf * mult, use_bias=False))
 
-        # for i in range(n_blocks):
-        #     setattr(self, 'UpBlock2_' + str(i+1), ResnetAdaILNBlock(ngf * mult, use_bias=False))
-        #
         for i in range(n_blocks):
             setattr(self, 'Mask_Layer_' + str(i + 1), Mask_Layer(ngf * mult * 2, use_bias=False))
 
@@ -119,27 +116,13 @@ class ResnetGenerator(nn.Module):
                         nn.ReLU(True)]
         Decode_mask = []
         for i in range(n_downsampling):
-            # Decode_mask += [nn.Upsample(scale_factor=2, mode='nearest')]
             Decode_mask += [nn.Upsample(scale_factor=2, mode='bilinear', align_corners=True)]
-        # Decode_mask = []
-        # for i in range(n_downsampling):
-        #     mult = 2 ** (n_downsampling - i)
-        #     Decode_mask += [nn.Upsample(scale_factor=2, mode='nearest'),
-        #                      nn.ReflectionPad2d(1),
-        #                      nn.Conv2d(1, 1, kernel_size=3, stride=1, padding=0, bias=False),
-        #                      ILN(1),
-        #                      nn.ReLU(True)]
-        #
-        # Decode_mask += [nn.ReflectionPad2d(1),
-        #                  nn.Conv2d(1, 1, kernel_size=3, stride=1, padding=0, bias=False),
-        #                  nn.Tanh()]
 
         mult = 4
         self.DownBlock = nn.Sequential(*DownBlock)
         self.FC = nn.Sequential(*FC)
         self.Decode_image = nn.Sequential(*Decode_image)
 
-        # self.recon_middle = nn.Sequential(*recon_middle)
         self.Decode_recon = nn.Sequential(*Decode_recon)
         self.Decode_mask = nn.Sequential(*Decode_mask)
 
@@ -153,7 +136,7 @@ class ResnetGenerator(nn.Module):
     def forward(self, input):
         x = self.DownBlock(input)
         x_r = x.clone()
-        # x_decoder = x.clone()
+
         x = self.Split_layer(x)
         # cam分支
         gap = torch.nn.functional.adaptive_avg_pool2d(x, 1)
@@ -171,23 +154,11 @@ class ResnetGenerator(nn.Module):
         x = self.relu(self.conv1x1(x))  # [C,248,64,64]
         x_decoder = x.clone()
 
-        # for i in range(0, x.size()[0]):
-        #     for j in range(0, x.size()[1]):
-        #         max_value, _ = torch.max(torch.max(x[i][j], 0)[0], 0)
-        #         layer_value = max_value*self.background_layer - x[i:i+1, j:j+1, :, :]
-        #         if(j==0):
-        #             x_Down = layer_value
-        #         else:
-        #             x_Down = torch.cat([x_Down, layer_value], 1)
+
         heatmap = torch.sum(x, dim=1, keepdim=True)
         x_mask = x.clone()  # [C,248,64,64]
-        # x_mask = heatmap.clone()  # [C,1,64,64]
-        # x_mask = x_mask - torch.min(torch.min(x_mask[0][0], 0)[0], 0)[0]
-        # att_mask = (x_mask/torch.max(torch.max(x_mask[0][0], 0)[0], 0)[0]-0.3)*10000
-        # att_mask = nn.Sigmoid()(att_mask)
         att_mask = self.conv2x1(x_mask)
-        # att_mask = att_mask - torch.min(torch.min(att_mask[0][0], 0)[0], 0)[0]
-        # att_mask = (att_mask / torch.max(torch.max(att_mask[0][0], 0)[0], 0)[0] - 0.5) * 10000
+
         att_mask = nn.Sigmoid()(att_mask)
         att_mask = att_mask.repeat(1, self.ngf * 4, 1, 1)
         # x_mask = x_mask.repeat(1, self.ngf*4, 1, 1)
@@ -197,28 +168,19 @@ class ResnetGenerator(nn.Module):
         if self.light:
             x_ = torch.nn.functional.adaptive_avg_pool2d(x, 1)
             x_ = self.FC(x_.view(x_.shape[0], -1))
-            # x_Down_ = torch.nn.functional.adaptive_avg_pool2d(x_Down, 1)
-            # x_Down_ = self.FC(x_Down_.view(x_Down_.shape[0], -1))
+
         else:
             x_ = self.FC(x.view(x.shape[0], -1))
             # x_Down_ = self.FC(x_Down.view(x_Down.shape[0], -1))
         gamma1, beta1 = self.gamma1(x_), self.beta1(x_)  # gamma1[C, 248] beta1 [C, 248]
 
         for i in range(self.n_blocks):
-            # att_mask, x_mask = getattr(self, 'Mask_Layer_' + str(i+1))(x_mask)
-            # att_mask = att_mask.repeat(1, self.ngf*4, 1, 1)
-            # x_mask = x_mask.repeat(1, self.ngf*4, 1, 1)
+
             x_r = getattr(self, 'recon_middle_' + str(i + 1))(x_r)
             x_decoder1 = getattr(self, 'UpBlock1_' + str(i + 1))(x_decoder, gamma1, beta1)  # x_decoder[C,248,64,64]
-            # x_decoder2 = getattr(self, 'UpBlock2_' + str(i+1))(x_r, gamma2, beta2)  # x_decoder[C,248,64,64]
-            # x_decoder = x_decoder1*att_mask + x_decoder2*(self.background_mask-att_mask)
-            # x_r = x_decoder2
+
             x_decoder = x_decoder1 * att_mask + x_r * (self.background_mask - att_mask)
 
-            # Up_feature = torch.cat([x_decoder1, att_mask], 1)
-            # Down_feature = torch.cat([x_r, self.background_mask-att_mask], 1)
-            # x_decoder = torch.cat([x_decoder1*att_mask, x_r*(self.background_mask-att_mask)], 1)
-            # x_decoder = getattr(self, 'Mask_Layer_' + str(i+1))(x_decoder)
             if (i == self.n_blocks - 1):
                 image_out1 = self.Decode_image(x_decoder)
                 input_r = self.Decode_recon(x_r)

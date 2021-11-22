@@ -214,14 +214,7 @@ if __name__ == '__main__':
                         if (i + j >= 256 * 2 - bg_th * 2):
                             crf[1][i][j] = 0
 
-                # crf[1] = 1 - crf[0]
-                # crf[2] = 1 - crf[0]
-                # scipy.misc.imsave('crf0.png', crf[0] * 255)
-                # scipy.misc.imsave('crf1.png', crf[1] * 255)
-                # scipy.misc.imsave('crf2.png', crf[2] * 255)
-                # scipy.misc.imsave(os.path.join(args.out_cam_pred, img_name + '-crf0.png'), crf[0] * 255)
-                # scipy.misc.imsave(os.path.join(args.out_cam_pred, img_name + '-crf1.png'), crf[1] * 255)
-                # scipy.misc.imsave(os.path.join(args.out_cam_pred, img_name + '-crf2.png'), crf[2] * 255)
+
                 if not os.path.exists(out_cam_pred_path + "/" + str(t)):
                     os.makedirs(out_cam_pred_path + "/" + str(t))
                 imageio.imsave(os.path.join(out_cam_pred_path + "/" + str(t), image_name + '.png'), crf[1] * 255)

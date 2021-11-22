@@ -36,14 +36,7 @@ def iou_score(output, target):
     return (intersection + smooth) / (union + smooth),JA,AC,DI,SE,SP
 
 def five_m(model_name, pre_path, label_path, dataset, folder, stage):
-    # pre
-    # pre_path = r"/home/dw/Disk_8T/ICCV2021/iccv_labels"
-    # pre_path = "/home/dw/Disk_8T/SY/UGATIT-pytorch-master_pure/iccv_labels" + '/' + 'iccv_labels' + model_name
-    # pre_path = "/home/dw/Disk_8T/SY/UGATIT-pytorch-master_pure/iccv_labels" + '/' + 'iccv_labels' + model_name + 'teacher'
 
-    # label
-    # label_path = r"/home/dw/Disk_8T/SY/pytorch-nested-unet-experiment2/皮肤数据集262/GT"
-    # label_path = r"/home/dw/Disk_8T/SY/UGATIT-pytorch-master_pure/ICCV_实验4测试集/皮肤测试集100/GT"
     count = 0
     iou_sum = 0
     JA_sum = 0
@@ -82,28 +75,18 @@ def five_m(model_name, pre_path, label_path, dataset, folder, stage):
     print(", ".join(str(i) for i in list_result_round))
 
     if(float(list_result_round[0])>0.1 and float(list_result_round[0])<1):
-        # with open("/home/dw/Disk_8T/SY/zhourixin/github/UGATIT-2.0/results/"+dataset+'/'+folder+'/'+dataset+"results"+str(stage)+".txt", "a+") as f:
         with open(os.path.join("results", dataset, folder, dataset+"results"+str(stage)+".txt"), "a+") as f:
             f.write(model_name+'teacher'+'\n')
-            # f.write('\n')
             f.write(str(list_result_round))
             f.write('\n')
             f.write('=='*5)
             f.write('\n')
     return list_result_round
-    # print(round(count * 100 / len(pre_list), 2), "%")
 
 
 
 def five_m_val(model_name, pre_path, label_path, dataset, stage):
-    # pre
-    # pre_path = r"/home/dw/Disk_8T/ICCV2021/iccv_labels"
-    # pre_path = "/home/dw/Disk_8T/SY/UGATIT-pytorch-master_pure/iccv_labels" + '/' + 'iccv_labels' + model_name
-    # pre_path = "/home/dw/Disk_8T/SY/UGATIT-pytorch-master_pure/iccv_labels" + '/' + 'iccv_labels' + model_name + 'teacher'
 
-    # label
-    # label_path = r"/home/dw/Disk_8T/SY/pytorch-nested-unet-experiment2/皮肤数据集262/GT"
-    # label_path = r"/home/dw/Disk_8T/SY/UGATIT-pytorch-master_pure/ICCV_实验4测试集/皮肤测试集100/GT"
     count = 0
     iou_sum = 0
     JA_sum = 0
@@ -142,7 +125,7 @@ def five_m_val(model_name, pre_path, label_path, dataset, stage):
     print(", ".join(str(i) for i in list_result_round))
 
     if(float(list_result_round[0])>0.65 and float(list_result_round[0])<1):
-        # with open("/home/dw/Disk_8T/SY/zhourixin/github/UGATIT-2.0/results/"+dataset+"results"+str(stage)+'val'+".txt", "a+") as f:
+
         with open(os.path.join(dataset+"results"+str(stage)+'val'+".txt"), "a+") as f:
             f.write(model_name+'teacher'+'\n')
             # f.write('\n')

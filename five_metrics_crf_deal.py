@@ -35,12 +35,7 @@ def iou_score(output, target):
     return (intersection + smooth) / (union + smooth),JA,AC,DI,SE,SP
 
 def five_m(folder_path, label_path):
-    #pre
-    # folder_path = r"/home/dw/Disk_8T/SY/zhourixin/github/UGATIT-2.0/results/BraTS/brats_1/crf_deal1/"
-    # pre_path = r"/home/dw/Disk_8T/SY/pytorch-nested-unet-experiment2/大脑数据集743/labels"
     folder_list = os.listdir(folder_path)
-    #label
-    # label_path = r"/home/dw/Disk_8T/SY/pytorch-nested-unet-experiment2/大脑数据集743/GT"
 
     for folder in folder_list:
         count = 0

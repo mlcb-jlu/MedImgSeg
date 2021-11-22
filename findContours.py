@@ -5,7 +5,6 @@ import nibabel as nib
 import os
 import cv2
 import math
-# CVPR论文最终用的这个版本的代码把mask转为二值标签
 
 def water(img_path):
     src = cv2.imread(img_path)

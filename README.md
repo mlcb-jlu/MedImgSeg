@@ -41,6 +41,8 @@ Then install the dependencies: (Anaconda is recommended.)
 ```
 pip install pillow tqdm tensorboardx pyyaml visdom opencv-python nibabel libsvm matplotlib
 ```
+## Quick Test
+你可以下载我们提供的训练完的模型，然后运行demo.sh进行快速测试进行快速测试
 
 ## Data Preparation
 To evaluate the segmentation performance of different methods, we conducted experiments on two different medical datasets, including BraTS datasets and ISIC datasets.

@@ -41,8 +41,7 @@ Then install the dependencies: (Anaconda is recommended.)
 ```
 pip install pillow tqdm tensorboardx pyyaml visdom opencv-python nibabel libsvm matplotlib
 ```
-## Quick Test
-你可以下载我们提供的训练完的模型，然后运行demo.sh进行快速测试进行快速测试
+
 
 ## Data Preparation
 To evaluate the segmentation performance of different methods, we conducted experiments on two different medical datasets, including BraTS datasets and ISIC datasets.
@@ -70,7 +69,11 @@ your_project_location
    - ISIC
      - ...
 ```
-
+## Quick Test
+你可以下载我们提供的训练完的模型，然后放到对应目录下。运行demo.sh快速测试模型分割效果，分割效果保存在结果目录中。 (location:https://pan.baidu.com/s/1oWbK0j5Xl6E2MUQU6TCRzg, password:1111)
+```
+bash ./demo.sh
+```
 
 ## Training and Testing
 * Step1：you need to run visdom and open the corresponding address in the browser to monitor each loss:
@@ -80,9 +83,9 @@ python -m visdom.server
 * Step2： you should change the PATH in the executable bash files to your virtual environment location.
 To training , validating and testing on BraTS dataset and ISIC dataset:
 ```
-sudo ./start_train.sh
-sudo ./start_test.sh
-sudo ./start_crf.sh
+bash ./start_train.sh
+bash ./start_test.sh
+bash ./start_crf.sh
 ```
 * Then you will get the result folders like:
 ```

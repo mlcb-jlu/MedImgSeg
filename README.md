@@ -19,21 +19,7 @@ Our code is built based on Pytorch, and the packages to be installed are as foll
 ```
 sudo git clone https://github.com/mlcb-jlu/MedImgSeg.git
 cd MedImgSeg/
-```
-
-```
-conda create -n CBFNet python=3.6.6
-source activate
-conda activate CBFNet
-```
-Install the pytorch you need on the pytorch official website:https://pytorch.org/get-started/locally/. 
-```
-conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c nvidia
-```
-Then install the dependencies: (Anaconda is recommended.)
-
-```
-pip install pillow tqdm tensorboardx pyyaml visdom opencv-python nibabel libsvm matplotlib
+conda env create -f requirements.yaml
 ```
 
 

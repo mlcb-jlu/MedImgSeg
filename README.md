@@ -1,29 +1,18 @@
+
+
 #MedImgSeg
 
-# Consistency Label Transferring Network for Medical Image Segmentation
+
+
+# Consistency Label-activated Region Transferring Network for Weakly Supervised Medical Image Segmentation
 ## Introduction
-Official pytorch implementation of paper "Consistency Label Transferring Network for Medical Image Segmentation"
-
-This model can simultaneously identify pixel level label-discriminated mask
-meanwhile maintain the semantic information and anatomical structure of medical image to precisely define segmentation boundary by collating the label and semantic related
-region through an image synthesis procedure. In addition, the produced lesion mask is further prompted by a joint discrimination strategy for the synthetized and generated image belonging to the opposite category. Extensive experiments of
-the proposed method on BraTS and ISIC datasets demonstrate consistently superior performance over existing state-of-the-art methods.
-
-Comparison between the other methods of weakly supervised segmentation and ours. (a) Ground Truth (GT),
-(b) Ours, (c) PSA (Ahn and Kwak 2018), (d) SEAM (Wang et al. 2020) and (e) IRN (Ahn, Cho, and Kwak 2019).
-<div align=center><img width="1500" height="1200" src="https://raw.githubusercontent.com/mlcb-jlu/MedImgSeg/master/img-folder/weak_result_contrast.png"/></div>
-
-Comparision of the segmentation performance JA, DI, AC, SE and SP (%) of our weakly supervised pipeline on
-(a) BraTS dataset and (b) ISIC dataset against CAM (Zhou et al. 2016), CAM+CRF (Zhou et al. 2016), PCM (Wang
-et al. 2020), PCM+CRF (Wang et al. 2020), PSA (Ahn and Kwak 2018), SEAM (Wang et al. 2020), IRN (Ahn, Cho, and Kwak 2019)
-<div align=center><img width="450" height="500" src="https://raw.githubusercontent.com/mlcb-jlu/MedImgSeg/master/img-folder/weak%20superbised%20accuracy%20result.png"/></div>
-
+Official pytorch implementation of paper "Consistency Label-activated Region Transferring Network for Weakly
+Supervised Medical Image Segmentation".
 This code was made public to share our research for the benefit of the scientific community. Do not use it for immoral purposes.
 ## Prerequisites
-## Clone this repo
 Our code is built based on Pytorch, and the packages to be installed are as follows:
 ```
-sudo git clone https://github.com/mlcb-jlu/MedImgSeg
+sudo git clone https://github.com/mlcb-jlu/MedImgSeg.git
 cd MedImgSeg/
 ```
 
@@ -45,7 +34,7 @@ pip install pillow tqdm tensorboardx pyyaml visdom opencv-python nibabel libsvm 
 
 ## Data Preparation
 To evaluate the segmentation performance of different methods, we conducted experiments on two different medical datasets, including BraTS datasets and ISIC datasets.
-You can download for training and testing.(location:https://pan.baidu.com/s/1rx29DxWq5W6bTh9NcvT0Tw, password:1111)
+You can download for training and testing.(dataset location:https://pan.baidu.com/s/1rx29DxWq5W6bTh9NcvT0Tw, password:1111)
 
 * Anyway you should get the dataset folders like:
 ```
@@ -69,8 +58,10 @@ your_project_location
    - ISIC
      - ...
 ```
-## Quick Test
-你可以下载我们提供的训练完的模型，然后放到对应目录下。运行demo.sh快速测试模型分割效果，分割效果保存在结果目录中。 (location:https://pan.baidu.com/s/1oWbK0j5Xl6E2MUQU6TCRzg, password:1111)
+## Quickly Test
+You can download the trained models we provide and put them in the trained model directory for quickly test.
+Run demo.sh to test the model segmentation performance, and the segmentation results are saved in the result directory. (model location:https://pan.baidu.com/s/1oWbK0j5Xl6E2MUQU6TCRzg, password:1111)
+
 ```
 bash ./demo.sh
 ```
@@ -93,6 +84,7 @@ your_project_location
  - results
    - BraTS
      - brats_1
+       - model1 # Storage location for trained models
        - val_folder
          - crf_deal1
            - 1~8 # The segmentation results after dense-CRF post-processing on validation set

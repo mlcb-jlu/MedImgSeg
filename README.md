@@ -9,6 +9,11 @@
 Official pytorch implementation of paper "Consistency Label-activated Region Transferring Network for Weakly
 Supervised Medical Image Segmentation".
 This code was made public to share our research for the benefit of the scientific community. Do not use it for immoral purposes.
+## Requirements
+* python 3.6
+* pytorch 1.7.0, torchvision 0.8.1
+* CUDA 11.1
+* 1 X GPU (24GB)
 ## Prerequisites
 Our code is built based on Pytorch, and the packages to be installed are as follows:
 ```
